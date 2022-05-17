@@ -2,7 +2,7 @@
 KDD21 Attentive Heterogeneous Graph Embedding for Job Mobility Prediction
 
 
-If you find DeepWalk useful in your research, we ask that you cite the following paper:
+If you find Ahead useful in your research, we ask that you cite the following paper:
 
 @inproceedings{zhang2021attentive,
   title={Attentive heterogeneous graph embedding for job mobility prediction},
