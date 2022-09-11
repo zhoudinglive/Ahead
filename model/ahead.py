@@ -65,7 +65,6 @@ class HierarchicalCareer(nn.Module):
             nn.Sigmoid()
         )
 
-
     def forward(self, seq_company, seq_title, seq_time, internal_graph, external_graph, batch_skill_embed=None):
         dur_context_idx = self.dur_context_graph[torch.nonzero(internal_graph, as_tuple=True)]
         ppr_context_idx = self.ppr_context_graph[torch.nonzero(internal_graph, as_tuple=True)]

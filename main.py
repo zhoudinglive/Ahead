@@ -25,11 +25,10 @@ from source_data.dataset import Data
 from model.utils import *
 from model.ahead import HierarchicalCareer
 from model.config import Config
-from case_study.attentions import attn_getter
 
-skill_embed = np.load("source_data/skill_embedding.npy", allow_pickle=True).tolist()
+skill_embed = np.load("source_data/mock_skill_embed_small.npy", allow_pickle=True).tolist()
 pid_str_dict = None
-with open("source_data/pid_str_dict.json", "r") as f:
+with open("source_data/mock_pid_str_dict.json", "r") as f:
     pid_str_dict = json.load(f)
 
 
@@ -67,9 +66,9 @@ def train(config):
     optimizer = optim.Adam(model.parameters(), lr=config.LEARN_RATE, weight_decay=config.WEIGHT_DECAY)
 
     internal_graph = torch.FloatTensor(
-        np.load("source_data/internal_graph.npy")).to(config.DEVICE)
+        np.load("source_data/mock_internal_graph.npy")).to(config.DEVICE)
     external_graph = torch.FloatTensor(
-        np.load("source_data/external_graph.npy")).to(config.DEVICE)
+        np.load("source_data/mock_external_graph.npy")).to(config.DEVICE)
 
     company_graph_true = internal_graph[:1381, :1381]
     title_graph_true = internal_graph[1381:, 1381:]
@@ -132,9 +131,9 @@ def train(config):
 def test(config):
     model = torch.load(config.MODEL_SAVE_PATH + config.MODEL_NAME, map_location=config.DEVICE)
     internal_graph = torch.FloatTensor(
-        np.load("source_data/internal_graph.npy")).to(config.DEVICE)
+        np.load("source_data/mock_internal_graph.npy")).to(config.DEVICE)
     external_graph = torch.FloatTensor(
-        np.load("source_data/external_graph.npy")).to(config.DEVICE)
+        np.load("source_data/mock_external_graph.npy")).to(config.DEVICE)
     with torch.no_grad():
         cct1, tct1 = evaluate(model, data, "test", config, internal_graph, external_graph, only_last=False)
 
@@ -142,7 +141,7 @@ def test(config):
 data = None
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Demo of Career Path Learning.")
-    parser.add_argument('--data_path', default='source_data/final_records.json')
+    parser.add_argument('--data_path', default='source_data/mock_final_records.json')
     parser.add_argument('--model_save_path', default='model_save/')
     parser.add_argument('--company_size', default=1380 + 1, type=int)
     parser.add_argument('--title_size', default=2098 + 1, type=int)

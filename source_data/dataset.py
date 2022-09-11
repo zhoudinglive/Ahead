@@ -216,14 +216,14 @@ def context_index(num_category, context_adj, scale=True):
 
 
 def context_graph(num_category):
-    dur_company_context = context_index(num_category, np.load("source_data/dur_of_company.npy"))
-    dur_title_context = context_index(num_category, np.load("source_data/dur_of_title.npy"))
+    dur_company_context = context_index(num_category, np.load("source_data/mock_dur_of_company.npy"))
+    dur_title_context = context_index(num_category, np.load("source_data/mock_dur_of_title.npy"))
     dur_context_graph = np.zeros((COMPANY_COUNT + TITLE_COUNT, COMPANY_COUNT + TITLE_COUNT))
     dur_context_graph[:COMPANY_COUNT, :COMPANY_COUNT] = dur_company_context
     dur_context_graph[COMPANY_COUNT:, COMPANY_COUNT:] = dur_title_context
 
-    ppr_company_context = context_index(num_category, np.load("source_data/company_ppr.npy"), scale=False)
-    ppr_title_context = context_index(num_category, np.load("source_data/title_ppr.npy"), scale=False)
+    ppr_company_context = context_index(num_category, np.load("source_data/mock_company_ppr.npy"), scale=False)
+    ppr_title_context = context_index(num_category, np.load("source_data/mock_title_ppr.npy"), scale=False)
     ppr_context_graph = np.zeros((COMPANY_COUNT + TITLE_COUNT, COMPANY_COUNT + TITLE_COUNT))
     ppr_context_graph[:COMPANY_COUNT, :COMPANY_COUNT] = ppr_company_context
     ppr_context_graph[COMPANY_COUNT:, COMPANY_COUNT:] = ppr_title_context

@@ -1,0 +1,15 @@
+/model_save/ahead_duration
+/source_data/__pycache__/dataset.cpython-38.pyc
+/source_data/mock_skill_embedding.npy
+/model/__pycache__/ahead.cpython-38.pyc
+/model/__pycache__/config.cpython-38.pyc
+/model/__pycache__/dgru.cpython-38.pyc
+/model/__pycache__/hgcn.cpython-38.pyc
+/model/__pycache__/utils.cpython-38.pyc
+/__pycache__/main.cpython-38.pyc
+/.idea/.gitignore
+/.idea/Ahead.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
